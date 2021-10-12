@@ -13,10 +13,10 @@ import os
 
 from pathlib import Path
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 # do this early
-load_dotenv()
+# load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-_cz_pbj#2=d@@!^*#mv5t4!)3go6#60ijwblca#fejjriogv3&'
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -142,6 +144,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTHENTICATION_BACKENDS = [
         'django.contrib.auth.backends.ModelBackend',
         'account.authentication.EmailAuthBackend',
+        'social_core.backends.facebook.FacebookOAuth2',        
         'social_core.backends.google.GoogleOAuth2',
 ]
 
@@ -149,3 +152,9 @@ AUTHENTICATION_BACKENDS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SOCIAL_AUTH_FACEBOOK_KEY = 416408983173036
+SOCIAL_AUTH_FACEBOOK_SECRET = 'fe26964a211fad3312b1466950dbb316'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '684533862934-ttupu1opb63873nfc00afd7kj14ejr22.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'

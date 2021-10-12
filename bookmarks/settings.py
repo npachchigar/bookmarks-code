@@ -13,6 +13,11 @@ import os
 
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+# do this early
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_cz_pbj#2=d@@!^*#mv5t4!)3go6#60ijwblca#fejjriogv3&'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -137,6 +142,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTHENTICATION_BACKENDS = [
         'django.contrib.auth.backends.ModelBackend',
         'account.authentication.EmailAuthBackend',
+        'social_core.backends.google.GoogleOAuth2',
 ]
 
 # Default primary key field type

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'django_extensions',
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -148,13 +149,16 @@ AUTHENTICATION_BACKENDS = [
         'social_core.backends.google.GoogleOAuth2',
 ]
 
+
 # Default primary key field type
+
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SOCIAL_AUTH_FACEBOOK_KEY = 416408983173036
 SOCIAL_AUTH_FACEBOOK_SECRET = 'fe26964a211fad3312b1466950dbb316'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '684533862934-ttupu1opb63873nfc00afd7kj14ejr22.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'

@@ -13,6 +13,7 @@ import os
 
 from pathlib import Path
 
+
 # from dotenv import load_dotenv
 
 # do this early
@@ -33,6 +34,7 @@ SECRET_KEY = 'django-insecure-_cz_pbj#2=d@@!^*#mv5t4!)3go6#60ijwblca#fejjriogv3&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'images.apps.ImagesConfig',
     'easy_thumbnails',
+    'actions.apps.ActionsConfig',
 ]
 
 MIDDLEWARE = [
@@ -163,3 +166,15 @@ SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '684533862934-ttupu1opb63873nfc00afd7kj14ejr22.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+from django.urls import reverse_lazy
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail',
+                                        args=[u.username])
+}
+
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0

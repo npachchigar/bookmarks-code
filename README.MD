@@ -2,8 +2,7 @@ Bookmarks-code
 
 - for activate vanila env('bookmarks':virtualenv)
 Every time work in virtualenv use this code.
-source ~/env/bookmarks/Scripts/activate
-
+source ~/envs/bookmarks/Scripts/activate
 
 Chapter 5 
 # Building a bookmarklet with jQuery
